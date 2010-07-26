@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>ch4</groupId>
+    <artifactId>trade</artifactId>
+    <name>Trade DSL in Ruby</name>
+    <version>1.0</version>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>install</phase>
+                        <configuration>
+                            <tasks name="compile some jruby codekata">
+                                <exec dir="${basedir}" executable="cmd" failonerror="true">
+                                    <arg line="/c jrubyc account.rb commission.rb tax_fee.rb mailer.rb trade_validation.rb enable_trade_validation.rb trade.rb run_script.rb trade_dsl.rb"/>
+                                </exec>
+                            </tasks>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

@@ -1,0 +1,2 @@
+buy IBM @ 100 for NOMURA
+sell GOOGLE @ limitprice = 70 for CHASE
