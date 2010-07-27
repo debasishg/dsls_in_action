@@ -14,6 +14,7 @@ object ActivityReport {
     quantities: List[TradedQuantity]) {
     import scala.collection.mutable._
 
+    // grouping by instrument
     def groupByInstrument = {
       val m =
         new HashMap[Instrument, Set[TradedQuantity]]
@@ -26,6 +27,7 @@ object ActivityReport {
             .map(m.andThen(_.toList))
     }
 
+    // grouping by quantity
     def groupByQuantity = {
       val m =
         new HashMap[Int, Set[TradedQuantity]]

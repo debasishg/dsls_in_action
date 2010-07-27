@@ -2,6 +2,13 @@
 
 package ch2.order;
 
+/**
+ * Order abstraction that forms the client contract. Note it's immutable and does not contain
+ * any setter method. All mutation is handled through the inner <tt>Builder</tt> class.
+ * <p/>
+ * This is an application of the <em>Builder</em> design pattern that uses fluent interfaces
+ * with method chaining.
+ */
 public class Order {
     static class Builder {
         private String security;
@@ -12,6 +19,11 @@ public class Order {
         private String bs;
 
         public Builder() {}
+
+        /**
+         * All methods in <tt>Builder</tt> return <tt>this</tt> which helps in method chaining
+         * that forms the DSL structures.
+         */
         public Builder buy(int quantity, String security) {
             bs = "Bought";
             this.quantity = quantity;

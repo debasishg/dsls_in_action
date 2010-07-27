@@ -33,6 +33,7 @@ class Order {
 
 order = new Order()
 
+// Meta-programming hook to intercept non-existent method calls
 def methodMissing(String name, args) {
   order.metaClass.getMetaProperty(name).setProperty(order, args)
 }
@@ -41,9 +42,11 @@ def getNewOrder() {
   order
 }
 
+// Closure for inline valuation strategy specification
 def valueAs(closure) {
   order.value = closure(order.quantity, order.limitPrice[0])
 }
 
+// groovy meta-programming technique that injects new method calls
 Integer.metaClass.getShares = { -> delegate }
 Integer.metaClass.of = { instrument ->  [instrument, delegate] }

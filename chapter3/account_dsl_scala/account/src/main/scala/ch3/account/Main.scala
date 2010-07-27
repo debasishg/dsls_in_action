@@ -2,6 +2,8 @@ package ch3.account
 
 object Main {
   def main(args: Array[String]) {
+  
+    // implciit conversion from Account to AccountDSL
     implicit def enrichAccount(acc: Account): AccountDSL =
       new AccountDSL(acc)
   
@@ -14,11 +16,13 @@ object Main {
     accounts filter(_ belongsTo "John S.") map(_ getFirstName) foreach(println)
     val threshold = 0f
 
+    // application of Scala higher odrer functions / combinators
     accounts.filter(_ belongsTo "John S.")
             .map(_.calculate(new CalculatorImpl))
             .filter(_ > threshold)
             .foldLeft(0f)(_ + _)
 
+    // implicit value of the Calculator
     implicit val calc = new CalculatorImpl
 
     accounts.filter(_ belongsTo "John S.")

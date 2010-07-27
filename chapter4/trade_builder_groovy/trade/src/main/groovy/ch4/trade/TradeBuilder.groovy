@@ -1,4 +1,5 @@
-// Listing 4.7 & 4.8 Dynamic Builders for Trade objects in Groovy
+// Listing 4.7 Trade abstraction in Groovy
+// For dynamic builders and the DSL script of listign 4.8 have a look at the script embedded in the pom
 
 package ch4.groovy.trade
 

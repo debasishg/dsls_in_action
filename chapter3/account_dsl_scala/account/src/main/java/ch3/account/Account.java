@@ -5,6 +5,9 @@ package ch3.account;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The core abstraction in Java that we will make smarter using Scala
+ */
 public class Account {
     public enum STATUS { OPEN, CLOSED }
 
