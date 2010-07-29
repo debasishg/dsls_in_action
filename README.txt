@@ -51,4 +51,11 @@ The artifact order contains the source hierarchy, while the readme.txt contains 
 and run the DSL main scripts. The actual instructions depend on whether the source is Java, Groovy, Ruby, Scala
 or Clojure.
 
+Prerequisites:
+--------------
+
+The code packaging is done around Maven. Please ensure you have maven 2.2.1 installed. For running Ruby code, I
+have packaged around the jruby plugin of Maven. You would also need to have JRuby installed for running them. For
+more details, have a look at the respective readme.txt files in the individual folders.
+
 Happy DSLing!
