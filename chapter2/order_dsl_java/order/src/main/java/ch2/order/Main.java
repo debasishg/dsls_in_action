@@ -7,7 +7,7 @@ public class Main {
                      .buy(100, "IBM")
                      .atLimitPrice(300)
                      .allOrNone()
-                     .valueAs(new OrderValuerImpl())
+                     .valueAs(new StandardOrderValuer())
                      .build();
         System.out.println(o);
     }

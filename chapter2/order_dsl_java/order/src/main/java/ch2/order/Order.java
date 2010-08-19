@@ -16,7 +16,7 @@ public class Order {
         private int limitPrice;
         private boolean allOrNone;
         private int value;
-        private String bs;
+        private String boughtOrSold;
 
         public Builder() {}
 
@@ -25,13 +25,13 @@ public class Order {
          * that forms the DSL structures.
          */
         public Builder buy(int quantity, String security) {
-            bs = "Bought";
+            this.boughtOrSold = "Bought";
             this.quantity = quantity;
             this.security = security;
             return this;
         }
         public Builder sell(int quantity, String security) {
-            bs = "Sold";
+            this.boughtOrSold = "Sold";
             this.quantity = quantity;
             this.security = security;
             return this;
@@ -58,7 +58,7 @@ public class Order {
     private final int limitPrice;
     private final boolean allOrNone;
     private int value;
-    private final String bs;
+    private final String boughtOrSold;
 
     private Order(Builder b) {
         security = b.security;
@@ -66,15 +66,15 @@ public class Order {
         limitPrice = b.limitPrice;
         allOrNone = b.allOrNone;
         value = b.value;
-        bs = b.bs;
+        boughtOrSold = b.boughtOrSold;
     }
 
     public boolean isAllOrNone() {
         return allOrNone;
     }
 
-    public String getBs() {
-        return bs;
+    public String getBoughtOrSold() {
+        return boughtOrSold;
     }
 
     public int getLimitPrice() {
@@ -96,7 +96,7 @@ public class Order {
     @Override
     public String toString() {
 		return new StringBuilder()
-		    .append(bs)
+		    .append(boughtOrSold)
 		    .append(" " + quantity + " shares of ")
 		    .append(security)
 		    .append(" with limit price ")
