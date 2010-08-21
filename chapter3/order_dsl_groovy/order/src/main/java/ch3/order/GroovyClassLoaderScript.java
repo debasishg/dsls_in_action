@@ -21,7 +21,7 @@ public class GroovyClassLoaderScript {
 
         final Closure dsl =
             (Closure)((Script) new GroovyClassLoader().parseClass(
-                new File("D:/tech/dsls_in_a/chapter3/order_dsl_groovy/order/src/main/groovy/ch3/order/order1.dsl")).newInstance()).run();
+                new File("script/order1.dsl")).newInstance()).run();
 
         dsl.setDelegate(clientOrder);
         final Object result = dsl.call();

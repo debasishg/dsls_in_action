@@ -18,8 +18,8 @@ public class GroovyScriptEngine {
                 (List<?>)engine.eval(new InputStreamReader(
                     new BufferedInputStream(
                         new SequenceInputStream(
-                            new FileInputStream("D:/tech/dsls_in_a/chapter3/order_dsl_groovy/order/src/main/groovy/ch3/order/ClientOrder.groovy"),
-                            new FileInputStream("D:/tech/dsls_in_a/chapter3/order_dsl_groovy/order/src/main/groovy/ch3/order/order.dsl")))));
+                            new FileInputStream("script/ClientOrder.groovy"),
+                            new FileInputStream("script/order.dsl")))));
 
         System.out.println(orders.size());
         for(Object o : orders) {
