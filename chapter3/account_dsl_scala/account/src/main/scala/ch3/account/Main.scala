@@ -14,13 +14,13 @@ object Main {
     acc1 << "Mary R." << "Shawn P." << "John S."
     val accounts = List(acc1, acc2, acc3)
     accounts filter(_ belongsTo "John S.") map(_ getFirstName) foreach(println)
-    val threshold = 0f
+    val threshold = 0.0
 
     // application of Scala higher odrer functions / combinators
     accounts.filter(_ belongsTo "John S.")
             .map(_.calculate(new CalculatorImpl))
             .filter(_ > threshold)
-            .foldLeft(0f)(_ + _)
+            .foldLeft(0.0)(_ + _)
 
     // implicit value of the Calculator
     implicit val calc = new CalculatorImpl
@@ -28,6 +28,6 @@ object Main {
     accounts.filter(_ belongsTo "John S.")
             .map(_.calculateInterest)
             .filter(_ > threshold)
-            .foldLeft(0f)(_ + _)
+            .foldLeft(0.0)(_ + _)
   }
 }

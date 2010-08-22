@@ -18,7 +18,7 @@ public class Account {
     private List<String> names = new ArrayList<String>();
     private STATUS status = STATUS.OPEN;
     private TYPE accountType = TYPE.TRADING;
-    private float interestAccrued = 0f;
+    private double interestAccrued = 0.00;
 
     public Account(String number, String firstName) {
         this.number = number;
@@ -30,7 +30,7 @@ public class Account {
         this.accountType = accountType;
     }
 
-    public float calculate(final Calculator c) {
+    public double calculate(final Calculator c) {
         interestAccrued = c.calculate(this);
         return interestAccrued;
     }
@@ -43,7 +43,7 @@ public class Account {
         return firstName;
     }
 
-    public float getInterestAccrued() {
+    public double getInterestAccrued() {
         return interestAccrued;
     }
 

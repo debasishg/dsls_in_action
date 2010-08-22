@@ -24,7 +24,7 @@ class AccountDSL(value: Account) {
     this
   }
   
-  def calculateInterest(implicit calc: Calculator): Float = {
+  def calculateInterest(implicit calc: Calculator): Double = {
     // note that the Calculator is an implicit parameter, which
     // means that the compiler will automatically look for an instance,
     // if available within the lexical scope
