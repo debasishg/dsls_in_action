@@ -30,6 +30,7 @@ class TradeDSL
     dsl.sub!(/for account /, ',')
     dsl.sub!(/to buy /, ', :buy, ')
     dsl.sub!(/(\d+) shares of ('.*?')/, '\1.shares.of(\2)')
+    dsl.sub!(/(\d+) share of ('.*?')/, '\1.shares.of(\2)')
     puts dsl
     dsl
   end

@@ -8,7 +8,7 @@ class CashValueCalculator
   def initialize(trade)
     @trade = trade
     @p = [@trade.principal, @trade.unitprice * @trade.instrument.quantity].find do |m|
-      m.nil? == false
+      not m.nil? 
     end
     @t = @trade.tax unless @trade.tax.nil?
     @c = @trade.commission unless @trade.commission.nil?
