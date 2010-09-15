@@ -21,13 +21,14 @@ trait Balances {
 }
 
 class BalancesImpl extends Balances {
-  type Balance = (BigDecimal, Currency, Date)
+  case class BalanceRep(amount: BigDecimal, ccy: Currency, asOfDate: Date)
+  type Balance = BalanceRep
 
   override def balance(amount: BigDecimal, ccy: Currency, asOf: Date)
-    = (amount, ccy, asOf)
+    = BalanceRep(amount, ccy, asOf)
 
   override def inBaseCurrency(b: Balance)
-    = ((b._1 * getConversionFactor(getBaseCurrency), b._2, b._3), getBaseCurrency)
+    = (BalanceRep(b.amount * getConversionFactor(getBaseCurrency), b.ccy, b.asOfDate), getBaseCurrency)
 }
 
 object Balances extends BalancesImpl
