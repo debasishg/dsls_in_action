@@ -34,7 +34,7 @@ object TradeImplicits {
     def at(c: Money) = (c, wmaiq._1, wmaiq._2, wmaiq._3, wmaiq._4)
   }
 
-  implicit def Int2InstrumentHelper(qty: Quantity) = new InstrumentHelper(qty)
+  implicit def quantity2InstrumentHelper(qty: Quantity) = new InstrumentHelper(qty)
   implicit def withAccount(wiq: WithInstrumentQuantity) = new AccountHelper(wiq)
   implicit def withMarket(waiq: WithAccountInstrumentQuantity) = new MarketHelper(waiq)
   implicit def withPrice(wmaiq: WithMktAccountInstrumentQuantity) = new PriceHelper(wmaiq)

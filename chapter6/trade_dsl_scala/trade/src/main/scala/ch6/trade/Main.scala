@@ -12,7 +12,7 @@ object Main {
   import Markets._
   import Currencies._
   
-  val fixedIncomeTrade: Trade =
+  val fixedIncomeTrade =
     200 discount_bonds IBM for_client NOMURA on NYSE at 72.ccy(USD)
 
 

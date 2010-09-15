@@ -10,11 +10,8 @@ trait TradeDsl {
 
   def withTrade(trade: T)(op: T => Unit): T = {
 
-    validate(trade) match {
-      case true =>
-        (enrich andThen journalize andThen op)(trade)
-      case _ =>
-    }
+    if (validate(trade))
+      (enrich andThen journalize andThen op)(trade)
     trade
   }
 
