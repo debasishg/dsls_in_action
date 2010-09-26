@@ -22,9 +22,12 @@ object SSI_AST {
   case object SettleSecurity extends SettleCashSecurityRule
 
   trait SettlementRule
-  case class SettleCashSecuritySeparate(
-    set: List[(SettleCashSecurityRule, SettlementModeRule)]) 
-      extends SettlementRule
+  case class SettleCashSecuritySeparate(set: List[(SettleCashSecurityRule, SettlementModeRule)]) 
+    extends SettlementRule {
+    def settleCashSecurityRules = set.map(_._1) 
+    def hasSettleSecurity = settleCashSecurityRules contains SettleSecurity 
+    def hasSettleCash = settleCashSecurityRules contains SettleCash  
+  }
   case class SettleAll(sm: SettlementModeRule) extends SettlementRule
 
   trait CounterpartyRule

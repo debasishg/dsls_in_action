@@ -20,7 +20,7 @@ object OrderDsl extends StandardTokenParsers {
     security_spec ~ buy_sell ~ price_spec 
 
   lazy val buy_sell = 
-    "to" ~> "buy" | "to" ~> "sell"
+    "to" ~> ("buy" | "sell")
 
   lazy val security_spec = 
       numericLit ~ (ident <~ "shares") 

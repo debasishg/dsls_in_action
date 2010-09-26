@@ -38,8 +38,7 @@ object SSI_Dsl extends JavaTokenParsers
       repN(2, settle_cash_security ~ settle_mode_spec) ^^ { case l: Seq[_] =>
           SettleCashSecuritySeparate(l map (e => (e._1, e._2))) }
     ) { case (s, in) => {
-          val cs = s.set.map(_._1) 
-          if ((cs contains SettleSecurity) && (cs contains SettleCash))
+          if ((s hasSettleSecurity) && (s hasSettleCash))
             Success(s, in)
           else Failure(
             "should contain 1 entry for cash and security side of settlement", in)

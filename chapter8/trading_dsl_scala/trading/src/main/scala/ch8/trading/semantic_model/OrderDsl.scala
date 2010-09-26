@@ -25,8 +25,7 @@ object OrderDsl extends StandardTokenParsers {
       { case s ~ b ~ p => LineItem(s, b, p) }
 
   lazy val buy_sell: Parser[BuySell] = 
-    "to" ~> "buy" ^^^ BUY | 
-    "to" ~> "sell" ^^^ SELL
+    "to" ~> ("buy" ^^^ BUY | "sell" ^^^ SELL)
 
   lazy val security_spec: Parser[SecuritySpec] = 
     numericLit ~ (ident <~ "shares") ^^ 
